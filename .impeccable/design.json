@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-25T17:30:00.000Z",
+  "title": "Design System: by heart",
+  "extensions": {
+    "colorMeta": {
+      "ink": { "role": "neutral", "displayName": "Night Ink", "canonical": "#0A0E1A", "tonalRamp": ["#04060C", "#080B14", "#0A0E1A", "#141B2E", "#283044", "#4A5266", "#8C93A3", "#DDE0E7"] },
+      "ink-raised": { "role": "neutral", "displayName": "Raised Ink", "canonical": "#0E1424", "tonalRamp": ["#060910", "#0A0F1B", "#0E1424", "#161D31", "#232C46", "#48516B", "#8A90A4", "#DEE1E8"] },
+      "bone": { "role": "neutral", "displayName": "Bone", "canonical": "#EDE7DA", "tonalRamp": ["#2B2822", "#4F4B42", "#757065", "#9B9689", "#C2BCAE", "#D6D1C5", "#EDE7DA", "#FAF7F1"] },
+      "dim": { "role": "neutral", "displayName": "Dim", "canonical": "#A6ACBB", "tonalRamp": ["#23262E", "#3C404A", "#565B68", "#717787", "#8C92A2", "#A6ACBB", "#C4C8D2", "#E2E5EB"] },
+      "faint": { "role": "neutral", "displayName": "Faint", "canonical": "#767D90", "tonalRamp": ["#1A1D24", "#2C3039", "#3F4450", "#535967", "#646B7B", "#767D90", "#9AA1AF", "#C7CCD5"] },
+      "brass": { "role": "primary", "displayName": "Lamp Brass", "canonical": "#E5B665", "tonalRamp": ["#3A2C13", "#5C4620", "#7E5F2C", "#A17A39", "#C29549", "#E5B665", "#EFCE96", "#F7E6C8"] },
+      "sage": { "role": "secondary", "displayName": "Verdigris", "canonical": "#8FC3AC", "tonalRamp": ["#1C2C27", "#2C463D", "#3D6053", "#4F7A69", "#6A9C89", "#8FC3AC", "#B7D9CA", "#DCEDE5"] },
+      "rubric": { "role": "tertiary", "displayName": "Rubric Red", "canonical": "#E6857A", "tonalRamp": ["#3A1E1B", "#5C302B", "#7E433C", "#9F574E", "#C46C62", "#E6857A", "#F0B3AB", "#F8DCD7"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Screen titles and verse references. Besley, the tune-name voice." },
+      "scripture": { "displayName": "Scripture", "purpose": "The verse itself, measured to 34ch in the cover." },
+      "title": { "displayName": "Title", "purpose": "Verse references inside lists and sheets." },
+      "label": { "displayName": "Label", "purpose": "Topic names, group titles, legend. 11px uppercase." }
+    },
+    "shadows": [
+      { "name": "sheet-lift", "value": "0 -18px 48px -20px rgba(0,0,0,0.72)", "purpose": "Bottom sheets only; the single shadow in the system." }
+    ],
+    "motion": [
+      { "name": "ease-out-expo", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "All entrances: screen-in 320ms, sheet rise 400ms, recite cover 380ms." },
+      { "name": "caret-blink", "value": "1.05s steps(2, end) infinite", "purpose": "The insertion caret in the recitation cover." },
+      { "name": "miss-shake", "value": "320ms ease-out-expo", "purpose": "3px horizontal shake when a wrong letter is typed." }
+    ],
+    "breakpoints": [
+      { "name": "phone", "value": "0px" },
+      { "name": "rail", "value": "780px" },
+      { "name": "desktop-column", "value": "900px" },
+      { "name": "narrow-grades", "value": "380px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one bright object on a screen: Begin, or the suggested grade.",
+      "html": "<button class=\"ds-btn-primary\">Begin <svg width=\"19\" height=\"19\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 12h15M13 6l6 6-6 6\"/></svg></button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: space-between; gap: 10px; height: 52px; min-width: 200px; padding: 0 22px; border: 0; border-radius: 14px; background: var(--bone, #EDE7DA); color: var(--ink, #0A0E1A); font-family: 'Hanken Grotesk Variable', system-ui, sans-serif; font-size: 16px; font-weight: 600; letter-spacing: -0.01em; cursor: pointer; transition: background 160ms cubic-bezier(0.16,1,0.3,1), transform 160ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-primary:hover { background: #FFFAF0; } .ds-btn-primary:active { transform: scale(0.985); } .ds-btn-primary:focus-visible { outline: 2px solid #E5B665; outline-offset: 2px; } .ds-btn-primary:disabled { background: #141B2E; color: #767D90; cursor: default; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action that must not compete with the bright object.",
+      "html": "<button class=\"ds-btn-ghost\">Return to new</button>",
+      "css": ".ds-btn-ghost { height: 48px; padding: 0 20px; border: 1px solid rgba(237,231,218,0.2); border-radius: 12px; background: transparent; color: var(--bone, #EDE7DA); font-family: 'Hanken Grotesk Variable', system-ui, sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; transition: border-color 160ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-ghost:hover { border-color: rgba(237,231,218,0.32); } .ds-btn-ghost:focus-visible { outline: 2px solid #E5B665; outline-offset: 2px; }"
+    },
+    {
+      "name": "Verse Row",
+      "kind": "custom",
+      "refersTo": "row-verse",
+      "description": "A ruled line in the library or due list: shape, reference, first words, due state.",
+      "html": "<button class=\"ds-row\"><span class=\"ds-row-mark\"><svg width=\"11\" height=\"11\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M3.4 3.4h17.2v17.2H3.4z\" fill=\"#E5B665\"/></svg></span><span class=\"ds-row-main\"><span class=\"ds-row-ref\">2 Corinthians 5:17</span><span class=\"ds-row-preview\">Therefore if anyone is in Christ,</span></span><span class=\"ds-row-due\">in 3d</span></button>",
+      "css": ".ds-row { display: grid; grid-template-columns: 14px minmax(0,1fr) auto; align-items: center; gap: 12px; width: 100%; min-height: 58px; padding: 12px 0; border: 0; border-bottom: 1px solid rgba(237,231,218,0.1); background: transparent; color: var(--bone, #EDE7DA); text-align: left; cursor: pointer; transition: background 140ms cubic-bezier(0.16,1,0.3,1); } .ds-row:hover { background: #0E1424; } .ds-row-mark { display: flex; justify-content: center; } .ds-row-main { display: flex; flex-direction: column; gap: 3px; min-width: 0; } .ds-row-ref { font-family: 'Literata Variable', Georgia, serif; font-size: 15.5px; font-weight: 600; color: #EDE7DA; } .ds-row-preview { font-family: 'Hanken Grotesk Variable', system-ui, sans-serif; font-size: 12.5px; color: #A6ACBB; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .ds-row-due { font-family: 'Hanken Grotesk Variable', system-ui, sans-serif; font-size: 12px; color: #A6ACBB; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "State Chip",
+      "kind": "chip",
+      "refersTo": "chip-state",
+      "description": "Shape plus word, so the stage is never conveyed by color alone.",
+      "html": "<span class=\"ds-chip\"><svg width=\"9\" height=\"9\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><ellipse cx=\"12\" cy=\"12\" rx=\"9.4\" ry=\"9.4\" fill=\"currentColor\"/></svg>Holding</span>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px 4px 7px; border: 1px solid currentColor; border-radius: 999px; color: #8FC3AC; font-family: 'Hanken Grotesk Variable', system-ui, sans-serif; font-size: 11.5px; font-weight: 600; letter-spacing: 0.01em; }"
+    },
+    {
+      "name": "Begin Card",
+      "kind": "card",
+      "description": "The day's single instruction: count, the first verse as a masked proof line, and Begin.",
+      "html": "<section class=\"ds-begin\"><p class=\"ds-begin-line\"><span class=\"ds-num\">2</span> verses to recite</p><p class=\"ds-begin-meta\">About 1 min &middot; two new verses first</p><div class=\"ds-sample\"><div class=\"ds-sample-head\"><span class=\"ds-sample-ref\">2 Corinthians 5:17</span><span class=\"ds-tag\">LSB</span><span class=\"ds-sample-note\">every missing letter is yours to type</span></div><p class=\"ds-verse\"><span>T</span><span class=\"ds-blank\"><span style=\"visibility:hidden\">herefore</span></span> <span>i</span><span class=\"ds-blank\"><span style=\"visibility:hidden\">f</span></span> <span>a</span><span class=\"ds-blank\"><span style=\"visibility:hidden\">nyone</span></span> &#8230;</p></div><button class=\"ds-btn-primary\" style=\"width:100%\">Begin</button></section>",
+      "css": ".ds-begin { display: flex; flex-direction: column; gap: 16px; padding: 22px; border: 1px solid rgba(237,231,218,0.1); border-radius: 18px; background: linear-gradient(180deg, #0E1424, #0A0E1A); } .ds-begin-line { font-family: 'Besley Variable', Georgia, serif; font-size: 1.45rem; font-weight: 500; letter-spacing: -0.02em; color: #EDE7DA; margin: 0; } .ds-num { color: #E5B665; font-variant-numeric: tabular-nums; } .ds-begin-meta { margin: 6px 0 0; font-family: 'Hanken Grotesk Variable', system-ui, sans-serif; font-size: 14px; color: #A6ACBB; } .ds-sample { display: flex; flex-direction: column; gap: 10px; padding-top: 16px; border-top: 1px solid rgba(237,231,218,0.1); } .ds-sample-head { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; } .ds-sample-ref { font-family: 'Besley Variable', Georgia, serif; font-size: 15px; font-weight: 600; color: #EDE7DA; } .ds-tag { font-family: 'Hanken Grotesk Variable', system-ui, sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: 0.09em; color: #A6ACBB; border: 1px solid rgba(237,231,218,0.2); border-radius: 5px; padding: 3px 6px 2px; } .ds-sample-note { font-family: 'Hanken Grotesk Variable', system-ui, sans-serif; font-size: 11.5px; color: #767D90; } .ds-verse { font-family: 'Literata Variable', Georgia, serif; font-size: 16.5px; line-height: 1.75; color: #EDE7DA; margin: 0; max-width: 34ch; } .ds-blank { display: inline-block; border-bottom: 1.5px solid rgba(229,182,101,0.45); padding-bottom: 1px; }"
+    },
+    {
+      "name": "Shape Sheet",
+      "kind": "custom",
+      "description": "The only progress visual: five ruled rows of twelve solfege marks.",
+      "html": "<button class=\"ds-sheet-row\"><span class=\"ds-sheet-letter\">A</span><span class=\"ds-sheet-name\">Live the New Life</span><span class=\"ds-sheet-marks\"><svg width=\"12\" height=\"12\" viewBox=\"0 0 24 24\"><path d=\"M3.4 3.4h17.2v17.2H3.4z\" fill=\"#E5B665\"/></svg><svg width=\"12\" height=\"12\" viewBox=\"0 0 24 24\"><ellipse cx=\"12\" cy=\"12\" rx=\"9.4\" ry=\"9.4\" fill=\"#8FC3AC\"/></svg><svg width=\"12\" height=\"12\" viewBox=\"0 0 24 24\"><path d=\"M12 2.6 22 21.4H2Z\" fill=\"#EDE7DA\"/></svg><svg width=\"12\" height=\"12\" viewBox=\"0 0 24 24\"><path d=\"M12 1.8 22.2 12 12 22.2 1.8 12z\" fill=\"none\" stroke=\"#7D8496\" stroke-width=\"2.6\"/></svg></span></button>",
+      "css": ".ds-sheet-row { display: grid; grid-template-columns: 26px minmax(0,1fr) auto; align-items: center; gap: 12px; width: 100%; padding: 13px 0 14px; border: 0; border-bottom: 1px solid rgba(237,231,218,0.1); background: transparent; text-align: left; cursor: pointer; } .ds-sheet-row:hover { background: #0E1424; } .ds-sheet-letter { font-family: 'Besley Variable', Georgia, serif; font-size: 16px; font-weight: 600; color: #E5B665; } .ds-sheet-name { font-family: 'Literata Variable', Georgia, serif; font-size: 14.5px; font-weight: 500; color: #EDE7DA; } .ds-sheet-marks { display: flex; justify-content: space-between; gap: 4px; max-width: 240px; }"
+    },
+    {
+      "name": "Tab Bar",
+      "kind": "nav",
+      "refersTo": "tab",
+      "description": "Three sections; bottom bar on phones, left rail from 780px.",
+      "html": "<nav class=\"ds-tabbar\"><button class=\"ds-tab ds-tab-on\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#E5B665\" stroke-width=\"1.6\"><rect x=\"3.5\" y=\"5\" width=\"17\" height=\"15.5\" rx=\"2.4\"/><path d=\"M3.5 10h17M8 3.2v3.4M16 3.2v3.4\"/></svg>Today</button><button class=\"ds-tab\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#767D90\" stroke-width=\"1.6\"><path d=\"M4 4.6h5.4v15H4zM14.6 4.6H20v15h-5.4z\"/></svg>The sixty</button></nav>",
+      "css": ".ds-tabbar { display: grid; grid-template-columns: repeat(3,1fr); gap: 4px; padding: 6px 8px 8px; border-top: 1px solid rgba(237,231,218,0.1); background: rgba(10,14,26,0.86); backdrop-filter: blur(20px) saturate(140%); } .ds-tab { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 8px 0 6px; border: 0; border-radius: 10px; background: transparent; color: #767D90; font-family: 'Hanken Grotesk Variable', system-ui, sans-serif; font-size: 10.5px; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; } .ds-tab-on { color: #EDE7DA; } .ds-tab:focus-visible { outline: 2px solid #E5B665; outline-offset: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Night Hymnal",
+    "overview": "The app is a hymnal read under one lamp. Its ground is the ink of a night-edition binding, its text is bone, and its only bright substance is brass: the metal of the caret, the blank, the mark that fills in. Where a hymnbook sets syllables under shaped notes, this app sets verses under blanks, and the four shapes that carry the notation carry the product's state as well.",
+    "keyCharacteristics": [
+      "One ink ground, one bone text, one brass accent, two state colors borrowed from the notation.",
+      "Ruled blanks instead of input boxes; the missing text is a 1px brass line.",
+      "Four geometric shapes as the entire state alphabet; no icon substitutes.",
+      "Display type for references and section names only; the working UI stays in the grotesk.",
+      "Motion is a single rise and a single caret blink."
+    ],
+    "rules": [
+      { "name": "The One Bright Object Rule", "body": "Exactly one bone-filled control appears per screen: Begin on Today, the recommended grade in recitation.", "section": "colors" },
+      { "name": "The Metal Rule", "body": "Brass marks what is incomplete, due, or suggested. It never fills a card and never appears as a gradient.", "section": "colors" },
+      { "name": "The Tune-Name Rule", "body": "Display type belongs to the thing being memorized and the section that holds it. A button, tab, or settings row never sets in Besley.", "section": "typography" },
+      { "name": "The Measure Rule", "body": "Scripture never exceeds 34ch in the recitation cover and 40ch in a sheet.", "section": "typography" },
+      { "name": "The Border-Or-Shadow Rule", "body": "A surface gets a hairline or the sheet lift, never both.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep every missing letter a 1px brass rule at 22% opacity, set on the baseline.",
+      "Do pair a shape with its word in any chip or legend.",
+      "Do let one element per screen be filled.",
+      "Do keep the verse measure at 34ch in the cover and 40ch in a sheet.",
+      "Do honor prefers-reduced-motion by collapsing the sheet rise and caret blink."
+    ],
+    "donts": [
+      "Don't introduce a fifth state glyph, a progress ring, a streak flame, or a percentage badge.",
+      "Don't put display type in buttons, tabs, chips, or settings rows.",
+      "Don't add a second accent hue for success or brand.",
+      "Don't box a list row in a card, and don't nest a card in a card.",
+      "Don't use gradient text, glass, sparkles, or emoji."
+    ]
+  }
+}
