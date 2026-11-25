@@ -8,6 +8,7 @@ export type Progress = {
   last: string | null;
   reps: number;
   lapses: number;
+  first?: string;
 };
 
 export type Grade = "again" | "hard" | "good" | "easy";
@@ -71,6 +72,7 @@ export function gradeProgress(p: Progress | undefined, grade: Grade, today = tod
     last: today,
     reps: reps + 1,
     lapses: (p?.lapses ?? 0) + (grade === "again" ? 1 : 0),
+    first: p?.first ?? (p && p.reps > 0 ? (p.last ?? today) : today),
   };
 }
 
@@ -94,11 +96,20 @@ export function newEntries(progress: Record<string, Progress>): Verse[] {
   return VERSES.filter((v) => !progress[v.id] || progress[v.id].reps === 0);
 }
 
+const NEW_PER_DAY = 2;
+
+/** New verses begun today, so a finished session cannot silently start another. */
+export function introducedToday(progress: Record<string, Progress>, today = todayISO()): number {
+  return Object.values(progress).filter((p) => p.first === today || (!p.first && p.last === today && p.reps <= 2)).length;
+}
+
 export function buildDailySet(progress: Record<string, Progress>, limit: number, today = todayISO()): DueEntry[] {
   const due = dueEntries(progress, today);
   if (due.length > 0) return due.slice(0, limit);
+  const allowance = Math.max(0, NEW_PER_DAY - introducedToday(progress, today));
+  if (allowance === 0) return [];
   return newEntries(progress)
-    .slice(0, Math.min(2, limit))
+    .slice(0, Math.min(allowance, limit))
     .map((verse) => ({ verse, progress: progress[verse.id], overdue: 0 }));
 }
 
