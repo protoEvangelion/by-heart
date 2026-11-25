@@ -82,7 +82,7 @@ export function Settings({
           <div className="setting-row">
             <div>
               <p className="setting-label">First letters</p>
-              <p className="setting-note">Open every word with its first letter. Off means a blank slate.</p>
+              <p className="setting-note">Type only the first letter of each word and the word fills in. Off means typing every letter.</p>
             </div>
             <button
               className={`switch ${prefs.firstLetters ? "is-on" : ""}`}

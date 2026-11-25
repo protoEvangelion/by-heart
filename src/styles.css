@@ -339,6 +339,7 @@ h1 {
   font-family: var(--font-text);
   font-size: 16.5px;
   line-height: 1.75;
+  word-spacing: 0.1em;
   color: var(--bone);
   max-width: 34ch;
 }
@@ -976,6 +977,7 @@ h1 {
   font-size: clamp(1.16rem, 4.9vw, 1.42rem);
   line-height: 1.62;
   letter-spacing: 0.002em;
+  word-spacing: 0.1em;
   max-width: 34ch;
   color: var(--bone);
   transition: opacity 200ms var(--ease);
@@ -1084,6 +1086,11 @@ h1 {
   color: var(--dim);
   font-size: 12.5px;
   line-height: 1.3;
+  transition: opacity 200ms var(--ease);
+}
+.tap-hint.is-dim {
+  opacity: 0;
+  pointer-events: none;
 }
 .tap-hint svg {
   flex: none;

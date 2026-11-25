@@ -203,7 +203,7 @@ The recurring geometry is the four solfege shapes, always drawn as solid geometr
 - Settings use a grouped inset list, not stacked cards.
 
 ### Inputs / Fields
-- **Style:** the recitation field is invisible. The verse itself is the input surface: tapping the text focuses a transparent 16px input laid over it, so no box, border, or placeholder appears inside the measure.
+- **Style:** the recitation field is invisible. The verse itself is the input surface: the first letter of each word is the only keystroke required, and the word completes when that letter lands. Tapping the text focuses a transparent 16px input laid over it, so no box, border, or placeholder appears inside the measure.
 - **Focus:** the only visible focus signal is the brass caret, which blinks at the insertion point.
 - **Error:** a wrong letter never inserts itself; the caret shakes 3px for 320ms and the accuracy figure drops. There is no red state inside the verse, because the text is not the error.
 

@@ -122,7 +122,7 @@ export function Today({
             <div className="sample-head">
               <span className="preview-ref">{first.ref}</span>
               <span className="tag">LSB</span>
-              <span className="preview-note">every missing letter is yours to type</span>
+              <span className="preview-note">one keystroke per word</span>
             </div>
             <p className="preview-verse">
               {maskLine(first.lines[0], firstLetters)}

@@ -34,7 +34,7 @@ The TMS itself is the product content, not a user-created set: the 60 verses, th
 - Corpus: 60 verses, fixed, ordered A1-E12, each with reference, topic, series, and LSB text including poetry line breaks.
 - Review scheduling: per-verse interval in days, next-due date, stage. Grades map to interval changes; a miss resets to 1 day.
 - Session: a daily set built from due verses (plus new verses when nothing is due), deterministic per day.
-- Recall modes: first-letter typing, full-text typing, and reveal-and-self-grade.
+- Recall modes: one keystroke per word (the first letter opens the word), full-text typing, and reveal-and-self-grade.
 - Local persistence in the browser; no analytics, no third-party trackers.
 - Installable PWA, offline-capable, iOS/iPadOS first with safe-area and standalone-mode handling.
 - Not in scope: accounts, cloud sync, audio recitation, multiple translations, user-authored verses, push notifications.
