@@ -6,3 +6,5 @@ dist-ssr
 .vercel
 .omc
 .env*
+.impeccable/review/
+.impeccable/mocks/
